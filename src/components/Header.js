@@ -3,32 +3,35 @@ import styled from 'styled-components'
 // icons-material
 import LoginIcon from '@mui/icons-material/Login';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
+
+import { NavLink } from 'react-router-dom';
+
 const Header = () => {
   return (
     <HeaderWrap>
       <Container>
         <Logo>
-          <a href='#'>E-COMMERCE</a>
+          <NavLink to='#'>E-COMMERCE</NavLink>
         </Logo>
         <Nav>
-          <li><a href='#'>Home</a></li>
-          <li><a href='#' className='gray'>Products</a></li>
-          <li><a href='#' className='gray'>About</a></li>
-          <li><a href='#' className='gray'>Contact</a></li>
+          <li><NavLink to='/'>Home</NavLink></li>
+          <li><NavLink to='/products' className='gray'>Products</NavLink></li>
+          <li><NavLink to='/about' className='gray'>About</NavLink></li>
+          <li><NavLink to='/contact' className='gray'>Contact</NavLink></li>
         </Nav>
         <Buttons>
-          <button className='login'>
+          <NavLink to="/login" className='btn'>
             <LoginIcon className='icons' />
             <span>Login</span>
-          </button>
-          <button className='login'>
+          </NavLink>
+          <NavLink to="/register" className='btn'>
             <AddReactionOutlinedIcon className='icons' />
             <span>Register</span>
-          </button>
-          <button className='login'>
+          </NavLink>
+          <NavLink to="/cart" className='btn'>
             <ShoppingCartOutlinedIcon className='icons' />
             <span>Cart (0)</span>
-          </button>
+          </NavLink>
         </Buttons>
       </Container>
     </HeaderWrap>
@@ -75,7 +78,7 @@ const Nav = styled.ul`
 const Buttons = styled.div`
   display: flex;
 
-  button{
+  .btn{
     margin-right: 10px;
     padding: 8px 10px;
     background-color: transparent;
@@ -89,7 +92,7 @@ const Buttons = styled.div`
       margin-right: 8px;
     }
   }
-  button:hover{
+  .btn:hover{
     background-color: rgb(40, 40, 40);
     color: #fff;
   }
