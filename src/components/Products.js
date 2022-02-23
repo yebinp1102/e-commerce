@@ -32,15 +32,20 @@ const Products = () => {
     )
   }
 
+  const filterProduct = (cate) => {
+    const updatedList = data.filter((x)=>x.category === cate);
+    setFilter(updatedList);
+  }
+
   const ShowProducts = () => {
     return(
       <div>
         <div className='buttons'>
-          <button className='button'>All</button>
-          <button className='button'>Men's Clothing</button>
-          <button className='button'>Women's Clothing</button>
-          <button className='button'>Jewelery</button>
-          <button className='button'>Electronics</button>
+          <button className='button' onClick={()=>setFilter(data)}>All</button>
+          <button className='button' onClick={()=>filterProduct("men's clothing")}>Men's Clothing</button>
+          <button className='button' onClick={()=>filterProduct("women's clothing")}>Women's Clothing</button>
+          <button className='button' onClick={()=>filterProduct("jewelery")}>Jewelery</button>
+          <button className='button' onClick={()=>filterProduct("electronics")}>Electronics</button>
         </div>
         <div className='productWrap'>
           {filter.map((product)=>{
@@ -127,17 +132,16 @@ const Row = styled.div`
   }
 
   .productWrap{
+    max-width: 1200px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 50px;
-    
+    gap: 15px;
+    margin-top: 50px;    
 
     .productInfo{
       border: 1px solid lightgray;
-      padding: 40px;
+      padding: 30px;
       border-radius: 5px;
-      margin-right: 15px;
-      margin-bottom: 15px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
