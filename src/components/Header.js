@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 // icons-material
 import LoginIcon from '@mui/icons-material/Login';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 
 import { NavLink } from 'react-router-dom';
 

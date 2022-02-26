@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -57,7 +58,7 @@ const Products = () => {
                     <p className='cardText'>
                       ${product.price}
                     </p>
-                  <a href='#' className='productBotton'>Buy now</a>
+                  <NavLink to={`/products/${product.id}`} className='productBotton'>Buy now</NavLink>
                 </div>
               </div>
             )
