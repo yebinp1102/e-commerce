@@ -4,10 +4,19 @@ import axios from 'axios';
 import styled from 'styled-components';
 import StarIcon from '@mui/icons-material/Star';
 
+import { useDispatch } from 'react-redux';
+import { addCart } from '../redux/action';
+
 const Product = () => {
+
   const {id} = useParams();
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+  const addProduct = (product) => {
+    dispatch(addCart(product));
+  }
 
   useEffect(()=>{
     setLoading(true);
@@ -43,7 +52,7 @@ const Product = () => {
             <h1 className='price'>$ {product.price}</h1>
             <p className='desc'>{product.description}</p>
             <div className='btns'>
-              <button>Add to Cart</button>
+              <button onClick={()=>addProduct(product)}>Add to Cart</button>
               <NavLink to="/cart" className='cartBtn'>Go to Cart</NavLink>
             </div>
          </div>
@@ -54,8 +63,7 @@ const Product = () => {
   return (
     <Container>
       <Row>
-        <ShowProduct />
-        {/* {loading ? <Loading /> : <ShowProduct />} */}
+        {loading ? <Loading /> : <ShowProduct />}
       </Row>
     </Container>
   )

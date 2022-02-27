@@ -6,13 +6,16 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const state = useSelector((state)=> state.handleCart)
+
   return (
     <HeaderWrap>
       <Container>
         <Logo>
-          <NavLink to='#'>E-COMMERCE</NavLink>
+          <NavLink to='/'>E-COMMERCE</NavLink>
         </Logo>
         <Nav>
           <li><NavLink to='/'>Home</NavLink></li>
@@ -31,7 +34,7 @@ const Header = () => {
           </NavLink>
           <NavLink to="/cart" className='btn'>
             <ShoppingCartOutlinedIcon className='icons' />
-            <span>Cart (0)</span>
+            <span>Cart ({state.length})</span>
           </NavLink>
         </Buttons>
       </Container>
